@@ -5,7 +5,7 @@ const pool = require('../module/pool');
 const moment = require('moment');
 const table = 'blog';
 
-const board = {
+const blog = {
     readAll: () => {
         const query = `SELECT * FROM ${table}`;
         console.log(query);
@@ -72,4 +72,4 @@ const board = {
 
 }
 
-module.exports = board;
+module.exports = blog;

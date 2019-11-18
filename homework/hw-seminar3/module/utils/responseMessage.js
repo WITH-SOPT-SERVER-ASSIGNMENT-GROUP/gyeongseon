@@ -40,5 +40,6 @@ module.exports = {
     NO_BOARD: "존재하지 않는 게시글 입니다.",
 
     //server
+    DB_ERROR : "DB에 잘못 접근했습니다.",
     INTERNAL_SERVER_ERROR: "서버 내부 오류"
   };

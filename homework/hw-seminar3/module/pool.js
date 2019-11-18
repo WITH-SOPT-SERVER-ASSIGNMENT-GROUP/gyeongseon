@@ -9,11 +9,11 @@ module.exports = {
                 result = await connection.query(query) || null;
             } catch (queryError) {
                 connection.rollback(() => {});
-                console.log(queryError);
+                console.log('[pool.js]  ', queryError);
             }
             pool.releaseConnection(connection);
         } catch (connectionError) {
-            console.log(connectionError);
+            console.log('[pool.js]  ',connectionError);
         }
         return result;
     },
@@ -29,11 +29,11 @@ module.exports = {
                 result = await connection.query(query, value) || null;
             } catch (queryError) {
                 connection.rollback(() => {});
-                console.log(queryError);
+                console.log('[pool.js]  ',queryError);
             }
             pool.releaseConnection(connection);
         } catch (connectionError) {
-            console.log(connectionError);
+            console.log('[pool.js]  ',connectionError);
         }
         return result;
     },
@@ -48,12 +48,12 @@ module.exports = {
                 await connection.commit();
             } catch (transactionError) {
                 await connection.rollback();
-                console.log(transactionError);
+                console.log('[pool.js]  ',transactionError);
                 result = false;
             }
             pool.releaseConnection(connection);
         } catch (connectionError) {
-            console.log(connectionError);
+            console.log('[pool.js]  ',connectionError);
             result = false;
         }
         return result;
