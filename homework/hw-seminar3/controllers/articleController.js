@@ -26,7 +26,8 @@ module.exports = {
     write: async (req, res) => {
         const blogIdx = req.params.blogIdx;
         const {userIdx, title, content} = req.body;
-        Article.write({userIdx, title, content, blogIdx})
+        const images = req.files;
+        Article.write({userIdx, title, content, blogIdx, images})
         .then(({code, json}) => 
         {
             res.status(code).send(json);

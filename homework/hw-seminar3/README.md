@@ -187,7 +187,7 @@
 ### Request - Header
 | 메소드 | 파라미터 |
 |:-------|:----------|
-|Content-Type|application/json|
+|Content-Type|multipart/form-data|
 
 ### Request - Body
 
@@ -196,12 +196,14 @@
 |userIdx|Int   |게시자의 Idx|
 |title|String   |게시글의 제목|
 |content|String   |게시글의 내용|
+|images|files|게시글의 이미지|
 
 ```
 {
 	"userIdx" : "24",
 	"title" : "무슨 글을 써야할까",
-    "content": "테스틏ㅍ!!!!테스틏ㅍ!!!!테스틏ㅍ!!!!테스틏ㅍ!!!!"
+    "content": "테스틏ㅍ!!!!테스틏ㅍ!!!!테스틏ㅍ!!!!테스틏ㅍ!!!!",
+    "images": files...
 }
 ```
 
@@ -229,6 +231,7 @@
 |articleIdx|Int   |바꿀 게시글의 Idx|
 |title|String   |게시글의 제목|
 |content|String   |게시글의 내용|
+
 블로그 내에 존재하는 게시글의 Idx에 접근해야만 합니다.
 ```
 {
@@ -260,6 +263,7 @@
 | 변수 | 타입 | 설명 |
 |:-------:|:-------:|:-------:|
 |articleIdx|Int   |삭제할 게시글의 Idx|
+
 블로그 내에 존재하는 게시글의 Idx에 접근해야만 합니다.
 ```
 {

@@ -39,6 +39,18 @@ module.exports = {
 
     NO_BOARD: "존재하지 않는 게시글 입니다.",
 
+    // comment
+    COMMENT_CREATE_SUCCESS: "댓글 작성 성공",
+    COMMENT_CREATE_FAIL: "댓글 작성 실패",
+    COMMENT_READ_ALL_SUCCESS: "댓글 전체 조회 성공",
+    COMMENT_READ_ALL_FAIL: "댓글 전체 조회 성공",
+    COMMENT_READ_SUCCESS: "댓글 조회 성공",
+    COMMENT_READ_FAIL: "댓글 조회 성공",
+    COMMENT_UPDATE_SUCCESS: "댓글 수정 성공",
+    COMMENT_UPDATE_FAIL: "댓글 수정 실패",
+    COMMENT_DELETE_SUCCESS: "댓글 삭제 성공",
+    COMMENT_DELETE_FAIL: "댓글 삭제 실패",
+
     //server
     DB_ERROR : "DB에 잘못 접근했습니다.",
     INTERNAL_SERVER_ERROR: "서버 내부 오류"
