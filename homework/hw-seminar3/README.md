@@ -1,5 +1,5 @@
 # [ LEVEL 1 ] 블로그
-## BASE URL : http://52.79.109.230
+## BASE URL : http://52.78.218.215
 ## **[GET] ~/blogs**
 ### Request - Header
 | 메소드 | 파라미터 |
