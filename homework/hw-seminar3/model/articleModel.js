@@ -48,13 +48,7 @@ const article = {
                 throw err;
             });
     },
-    write: ({
-        userIdx,
-        title,
-        content,
-        blogIdx,
-        images
-    }) => {
+    write: ({ userIdx, title, content, blogIdx, images }) => {
         const createdTime = moment().format('YYYY-MM-DD hh:mm:ss');
         var fields = 'userIdx, title, content, created, blogIdx';
         var questions = `?, ?, ?, ?, ?`;

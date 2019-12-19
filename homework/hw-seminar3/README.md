@@ -5,6 +5,7 @@
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|application/json|
+|jwt|user jwt|
 
 ### Response - body
 ##### SUCCESS
@@ -28,6 +29,7 @@
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|application/json|
+|jwt|user jwt|
 
 ### Response - body
 ##### SUCCESS
@@ -52,13 +54,13 @@
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|application/json|
+|jwt|user jwt|
 
 ### Request - Body
 
 | 변수 | 타입 | 설명 |
 |:-------:|:-------:|:-------:|
 |blogName|String   |게시물 제목|
-|owner|Int   |게시물 주인의 Idx|
 
 ```
 {
@@ -83,6 +85,7 @@
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|application/json|
+|jwt|user jwt|
 
 ### Request - Body
 
@@ -112,6 +115,7 @@
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|application/json|
+|jwt|user jwt|
 
 ### Response - body
 ##### SUCCESS
@@ -132,6 +136,7 @@
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|application/json|
+|jwt|user jwt|
 
 ### Response - body
 ##### SUCCESS
@@ -169,6 +174,7 @@
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|multipart/form-data|
+|jwt|user jwt|
 
 ### Response - body
 ##### SUCCESS
@@ -200,12 +206,12 @@
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|multipart/form-data|
+|jwt|user jwt|
 
 ### Request - Body
 
 | 변수 | 타입 | 설명 |
 |:-------:|:-------:|:-------:|
-|userIdx|Int   |게시자의 Idx|
 |title|String   |게시글의 제목|
 |content|String   |게시글의 내용|
 |images|files|게시글의 이미지|
@@ -237,6 +243,7 @@ images 는 최대 4개의 사진까지 받습니다.
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|multipart/form-data|
+|jwt|user jwt|
 
 ### Request - Body
 
@@ -272,6 +279,7 @@ images 는 최대 4개의 사진까지 받습니다.
 | 메소드 | 파라미터 |
 |:-------|:----------|
 |Content-Type|application/json|
+|jwt|user jwt|
 
 ### Request - Body
 

@@ -24,7 +24,8 @@ module.exports = {
         });
     },
     write: async (req, res) => {
-        const {blogName, owner} = req.body;
+        owner = req.decoded.idx;
+        const {blogName} = req.body;
         Blog.write({blogName, owner})
         .then(({code, json}) => res.status(code).send(json))
         .catch(err => {

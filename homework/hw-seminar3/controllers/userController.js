@@ -1,4 +1,4 @@
-const encrypt = require('../module/encryption');
+const encrypt = require('../module/security/encryption');
 const statusCode = require('../module/utils/statusCode');
 const resMessage = require('../module/utils/responseMessage');
 const util = require('../module/utils/utils');
@@ -8,7 +8,6 @@ module.exports = {
     login: async (req, res) => {
         const { id, password } = req.body;
         console.log(id, password);
-    
         if(!id || !password) {
             res.status(statusCode.BAD_REQUEST).send(util.successFalse(resMessage.NULL_VALUE));
             return;

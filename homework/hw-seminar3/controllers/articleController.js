@@ -24,15 +24,20 @@ module.exports = {
         });
     },
     write: async (req, res) => {
-        const {blogIdx} = req.header;
-        const {userIdx, title, content} = req.body;
+        const blogIdx = 1;
+        const userIdx = req.decoded.idx;
+        const {title, content} = req.body;
         if(!blogIdx || !userIdx || !title || !content) {
-            return res.status(statusCode.NO_CONTENT)
-            .send(util.successFalse(resMessage.NULL_VALUE));
+            const missParameters = Object.entries({blogIdx, userIdx, title, content})
+            .filter(it => it[1] == undefined).map(it => it[0]).join(',');
+            res.status(statusCode.NO_CONTENT)
+            .send(util.successFalse(`${resMessage.NULL_VALUE} ${missParameters}`));
+            return;
         }
         const images = req.files;
+        console.log(images);
         Article.write({userIdx, title, content, blogIdx, images})
-        .then(({code, json}) => 
+        .then(({code, json}) =>
         {
             res.status(code).send(json);
         })
