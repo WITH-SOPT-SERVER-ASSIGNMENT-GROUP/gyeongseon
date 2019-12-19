@@ -1,7 +1,7 @@
 const statusCode = require('../module/utils/statusCode');
 const resMessage = require('../module/utils/responseMessage');
 const util = require('../module/utils/utils');
-const Article = require('../model/article');
+const Article = require('../model/articleModel');
 
 module.exports = {
     readAll: async (req, res) => {
@@ -14,8 +14,8 @@ module.exports = {
         });
     },
     read: async (req, res) => {
-        const blogIdx = req.params.blogIdx;
-        Article.read(blogIdx)
+        const articleIdx = req.params.articleIdx;
+        Article.read(articleIdx)
         .then(({code, json}) => res.status(code).send(json))
         .catch(err => {
             console.log(err);
@@ -24,8 +24,12 @@ module.exports = {
         });
     },
     write: async (req, res) => {
-        const blogIdx = req.params.blogIdx;
+        const {blogIdx} = req.header;
         const {userIdx, title, content} = req.body;
+        if(!blogIdx || !userIdx || !title || !content) {
+            return res.status(statusCode.NO_CONTENT)
+            .send(util.successFalse(resMessage.NULL_VALUE));
+        }
         const images = req.files;
         Article.write({userIdx, title, content, blogIdx, images})
         .then(({code, json}) => 
@@ -38,9 +42,14 @@ module.exports = {
         });
     },
     update: async (req, res) => {
-        const blogIdx = req.params.blogIdx;
-        const {articleIdx, title, content} = req.body;
-        Article.update({articleIdx, title, content, blogIdx})
+        const articleIdx = req.params.articleIdx;
+        const {title, content} = req.body;
+        console.log(title, content);
+        const images = req.files;
+        if(!title || !content) {
+            return res.status(statusCode.NO_CONTENT).send(util.successFalse(resMessage.NULL_VALUE));
+        }
+        Article.update({articleIdx, title, content, images})
         .then(({code, json}) => 
         {
             res.status(code).send(json);
@@ -51,9 +60,8 @@ module.exports = {
         });
     },
     delete: async (req, res) => {
-        const blogIdx = req.params.blogIdx;
-        const articleIdx = req.body.articleIdx;
-        Article.delete({articleIdx, blogIdx})
+        const articleIdx = req.params.articleIdx;
+        Article.delete({articleIdx})
         .then(({code, json}) => 
         {
             res.status(code).send(json);

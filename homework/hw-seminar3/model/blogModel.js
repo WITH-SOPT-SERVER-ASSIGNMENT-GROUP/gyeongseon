@@ -22,6 +22,22 @@ const blog = {
                 throw err;
             });
     },
+    read: (blogIdx) => {
+        const query = `SELECT * FROM ${table} WHERE blogIdx = '${blogIdx}'`;
+        console.log(query);
+        return pool.queryParam_None(query)
+            .then(async (result) => {
+                console.log(result);
+                return {
+                    code: statusCode.OK,
+                    json: util.successTrue(resMessage.BOARD_READ_SUCCESS, result)
+                };
+            })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
+    },
     write: ({blogName, owner}) => {
         const fields = 'blogName, userIdx';
         const questions = `?, ?`;
